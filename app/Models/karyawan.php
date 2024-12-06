@@ -20,7 +20,8 @@ class Karyawan extends Model
 {
     use HasFactory;
     
-    protected $perPage = 5;
+
+    protected $perPage = 100;
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +29,8 @@ class Karyawan extends Model
      * @var array<int, string>
      */
     protected $fillable = ['nama', 'jabatan'];
+    public $Sortable =['nama', 'jabatan'];
+
 
 
 }

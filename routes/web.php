@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -14,9 +15,18 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
     Route::resource('karyawans', KaryawanController::class)->names([
         'index' => 'karyawans.index',
-]);
+        'create' => 'karyawans.create',
+        'store' => 'karyawans.store',
+        'show' => 'karyawans.show',
+        'edit' => 'karyawans.edit',
+        'update' => 'karyawans.update',
+        'destroy' => 'karyawans.destroy',
+    ]);
 });
+
+
 
 require __DIR__.'/auth.php';
